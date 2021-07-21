@@ -3,22 +3,27 @@
 // import styles from '../styles/Home.module.css'
 import React from 'react';
 
-function CompA() {
-  // return (
-  //   <>
-  //     <h1>CompA</h1>
-  //     <p>Hello Comp A</p>
-  //     <CompB />
-  //   </>
-  // );
+const ArrowFunction = () => {
+  return (<><h1>I am arrow function</h1></>);
+}
 
-  return React.createElement(
-    'div',
-    null,
-    React.createElement('h1', null, 'CompA'),
-    React.createElement('p', null, 'Hello Comp A'),
-    React.createElement(CompB)
+function CompA() {
+  return (
+    <>
+      <ArrowFunction />
+      <h1>CompA</h1>
+      <p>Hello Comp A</p>
+      <CompB />
+    </>
   );
+
+  // return React.createElement(
+  //   'div',
+  //   null,
+  //   React.createElement('h1', null, 'CompA'),
+  //   React.createElement('p', null, 'Hello Comp A'),
+  //   React.createElement(CompB)
+  // );
 }
 
 function CompB() {
