@@ -1,6 +1,7 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
+import React from 'react';
 
 function CompA() {
   return (
@@ -21,12 +22,23 @@ function CompB() {
   );
 }
 
+class CompC extends React.Component {
+  render() {
+    return (
+      <>
+        <h1>CompC</h1>
+      </>
+    );
+  }
+}
+
 function Home() {
   return (
     <>
       <CompB />
       <h1>Hello World!</h1>
       <CompA />
+      <CompC />
     </>
   );
 }
