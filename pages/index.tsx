@@ -78,15 +78,23 @@ function Home() {
   const [myValue, setValue] = useState(10);
 
   const incrementValue = () => {
+    console.log(`myValue: ${myValue}`);
     setValue(myValue + 1);
     // setValue(myValue++);
-    console.log(`myValue +: ${myValue}`);
+    console.log(`myValue + 1: ${myValue}`);
   };
 
   const decrementValue = () => {
+    console.log(`myValue: ${myValue}`);
     setValue(myValue - 1);
     // setValue(myValue--);
-    console.log(`myValue -: ${myValue}`);
+    console.log(`myValue - 1: ${myValue}`);
+  };
+
+  console.log(`myValueX: ${myValue}`);
+
+  const changeValue = (incrementor) => {
+    setValue(myValue + incrementor);
   };
 
   return (
@@ -95,6 +103,8 @@ function Home() {
       <button onClick={incrementValue}>+</button>
       <button onClick={decrementValue}>-</button>
       <CompB />
+      <button onClick={() => changeValue(+1)}>+</button>
+      <button onClick={() => changeValue(-1)}>-</button>
       <h1>Hello World! HomePage</h1>
       <CompA />
       <CompC />
