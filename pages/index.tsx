@@ -48,11 +48,36 @@ function CompB() {
 }
 
 // JSX - Javascript XML
-class CompC extends React.Component {
+class CompC extends React.Component<{}, { [key: string]: any }> {
+  // state = {
+  //   myValue: 10,
+  // };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      myValue: 10,
+    };
+  }
+
+  changeState(incrementor) {
+    this.setState({
+      myValue: incrementor,
+    });
+    console.log(incrementor);
+  }
+
   render() {
+    // const myValue = this.state.myValue;
+    const { myValue } = this.state;
+    console.log(`I am re-executed`);
+
     return (
       <>
-        <h1>CompC</h1>
+        <h1>Hello CompC</h1>
+        Current Value: <h1>{myValue}</h1>
+        <button onClick={() => this.changeState(myValue + 1)}>+</button>
+        <button onClick={() => this.changeState(myValue - 1)}>-</button>
       </>
     );
   }
