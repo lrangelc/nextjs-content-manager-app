@@ -1,11 +1,16 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import React from 'react';
+import React, { useState } from 'react';
 
 const ArrowFunction = () => {
-  return (<><h1>I am arrow function</h1></>);
-}
+  console.log('logging from arrow function');
+  return (
+    <>
+      <h1>I am arrow function</h1>
+    </>
+  );
+};
 
 function CompA() {
   return (
@@ -60,10 +65,23 @@ class CompD extends React.Component {
 }
 
 function Home() {
+  // [stateValue, mutateState]
+  // const valueState = useState(10);
+  // const value = valueState[0];
+  // const setValue = valueState[1];
+
+  // console.log('valueState');
+  // console.log(valueState);
+  // console.log('valueState[0]');
+  // console.log(valueState[0]);
+
+  const [myValue, setValue] = useState(10);
+
   return (
     <>
+      valueState: {myValue}
       <CompB />
-      <h1>Hello World!</h1>
+      <h1>Hello World! HomePage</h1>
       <CompA />
       <CompC />
       <CompD />
