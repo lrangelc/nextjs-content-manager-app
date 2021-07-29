@@ -56,7 +56,7 @@ function CompB() {
 }
 
 // JSX - Javascript XML
-class CompC extends React.Component<{}, { [key: string]: any }> {
+class CompC extends React.Component<{ myProp1 }, { [key: string]: any }> {
   // state = {
   //   myValue: 10,
   // };
@@ -78,6 +78,7 @@ class CompC extends React.Component<{}, { [key: string]: any }> {
   render() {
     // const myValue = this.state.myValue;
     const { myValue } = this.state;
+    const { myProp1} = this.props;
     console.log(`I am re-executed`);
 
     return (
@@ -86,6 +87,8 @@ class CompC extends React.Component<{}, { [key: string]: any }> {
         Current Value: <h1>{myValue}</h1>
         <button onClick={() => this.changeState(myValue + 1)}>+</button>
         <button onClick={() => this.changeState(myValue - 1)}>-</button>
+        <h2>Props myProp1: {this.props.myProp1}</h2>
+        <h2>Props myProp1: {myProp1}</h2>
       </>
     );
   }
@@ -153,7 +156,7 @@ function Home() {
       <button onClick={() => changeValue(-1)}>-</button>
       <h1>Hello World! HomePage</h1>
       <CompA myProp1={myValue} myProp2='My Custom Value' myProp3={true} myProp4={() => <div>My NEW JSX!</div>} />
-      <CompC />
+      <CompC myProp1={myValue} />
       <CompD />
     </>
   );
