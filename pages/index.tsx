@@ -1,7 +1,7 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ArrowFunction = () => {
   console.log('logging from arrow function');
@@ -13,6 +13,10 @@ const ArrowFunction = () => {
 };
 
 function CompA(props) {
+  useEffect(() => {
+    console.log('CompoA useEffect props.myProp1');
+  }, [props.myProp1]);
+
   return (
     <>
       <ArrowFunction />
@@ -105,6 +109,7 @@ function Home() {
   // console.log(valueState[0]);
 
   const [myValue, setValue] = useState(10);
+  const [myOtherValue, setOtherValue] = useState(100);
 
   const incrementValue = () => {
     console.log(`myValue: ${myValue}`);
@@ -126,11 +131,23 @@ function Home() {
     setValue(myValue + incrementor);
   };
 
+  useEffect(() => {
+    console.log('Use Effect called! myOtherValue');
+  }, [myOtherValue]);
+
+  useEffect(() => {
+    console.log('Use Effect called! myValue');
+  }, [myValue]);
+
   return (
     <>
       Current Value: <h1>{myValue}</h1>
       <button onClick={incrementValue}>+</button>
       <button onClick={decrementValue}>-</button>
+      <hr />
+      Other Value: <h1>{myOtherValue}</h1>
+      <button onClick={() => setOtherValue(myOtherValue + 1)}>+</button>
+      <button onClick={() => setOtherValue(myOtherValue - 1)}>-</button>
       <CompB />
       <button onClick={() => changeValue(+1)}>+</button>
       <button onClick={() => changeValue(-1)}>-</button>
