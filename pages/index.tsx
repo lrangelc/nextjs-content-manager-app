@@ -56,7 +56,7 @@ function CompB() {
 }
 
 // JSX - Javascript XML
-class CompC extends React.Component<{ myProp1 }, { [key: string]: any }> {
+class CompC extends React.Component<{ myProp1; MyProp2 }, { [key: string]: any }> {
   // state = {
   //   myValue: 10,
   // };
@@ -78,7 +78,8 @@ class CompC extends React.Component<{ myProp1 }, { [key: string]: any }> {
   render() {
     // const myValue = this.state.myValue;
     const { myValue } = this.state;
-    const { myProp1} = this.props;
+    const { myProp1, MyProp2 } = this.props;
+
     console.log(`I am re-executed`);
 
     return (
@@ -89,6 +90,7 @@ class CompC extends React.Component<{ myProp1 }, { [key: string]: any }> {
         <button onClick={() => this.changeState(myValue - 1)}>-</button>
         <h2>Props myProp1: {this.props.myProp1}</h2>
         <h2>Props myProp1: {myProp1}</h2>
+        <MyProp2 />
       </>
     );
   }
@@ -98,6 +100,10 @@ class CompD extends React.Component {
   render() {
     return React.createElement('h1', null, 'Hello CompD');
   }
+}
+
+function MyComponent() {
+  return <h1>My Component!</h1>;
 }
 
 function Home() {
@@ -156,7 +162,7 @@ function Home() {
       <button onClick={() => changeValue(-1)}>-</button>
       <h1>Hello World! HomePage</h1>
       <CompA myProp1={myValue} myProp2='My Custom Value' myProp3={true} myProp4={() => <div>My NEW JSX!</div>} />
-      <CompC myProp1={myValue} />
+      <CompC myProp1={myValue} MyProp2={MyComponent} />
       <CompD />
     </>
   );
