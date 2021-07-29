@@ -12,12 +12,16 @@ const ArrowFunction = () => {
   );
 };
 
-function CompA() {
+function CompA(props) {
   return (
     <>
       <ArrowFunction />
       <h1>CompA</h1>
       <p>Hello Comp A</p>
+      <div>My Prop1: {props.myProp1}</div>
+      <div>My Prop2: {props.myProp2}</div>
+      <div>My Prop3: {props.myProp3.toString()}</div>
+      <div>My Prop4: {<props.myProp4 />}</div>
       <CompB />
     </>
   );
@@ -131,7 +135,7 @@ function Home() {
       <button onClick={() => changeValue(+1)}>+</button>
       <button onClick={() => changeValue(-1)}>-</button>
       <h1>Hello World! HomePage</h1>
-      <CompA />
+      <CompA myProp1={myValue} myProp2='My Custom Value' myProp3={true} myProp4={() => <div>My NEW JSX!</div>} />
       <CompC />
       <CompD />
     </>
