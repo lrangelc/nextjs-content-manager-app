@@ -5,7 +5,7 @@ const firstPostPic = '/images/first-post.png';
 const ResourceHightlight = () => {
   return (
     <>
-      <section className='hero '>
+      <section className='hero'>
         <div className='hero-body'>
           <div className='container'>
             <div className='columns'>
