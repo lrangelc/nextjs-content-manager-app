@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 import ResourceHightlight from '../components/ResourceHighlight';
 import Newsletter from '../components/Newsletter';
 import ResourceList from '../components/ResourceList';
@@ -7,15 +7,15 @@ import Footer from '../components/Footer';
 function Home() {
   return (
     <>
-      <Navbar />
+      <Layout>
+        <ResourceHightlight />
 
-      <ResourceHightlight />
+        <Newsletter />
 
-      <Newsletter />
+        <ResourceList />
 
-      <ResourceList />
-
-      <Footer />
+        <Footer />
+      </Layout>
     </>
   );
 }
