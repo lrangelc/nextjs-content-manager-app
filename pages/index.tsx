@@ -9,11 +9,11 @@ function Home() {
   return (
     <>
       <Layout>
-        <ResourceHightlight />
+        <ResourceHightlight resources={resources} />
 
         <Newsletter />
 
-        <ResourceList />
+        <ResourceList resources={resources} />
 
         {JSON.stringify(resources)}
         <Footer />
