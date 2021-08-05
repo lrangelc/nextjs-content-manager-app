@@ -4,7 +4,7 @@ import Newsletter from '../components/Newsletter';
 import ResourceList from '../components/ResourceList';
 import Footer from '../components/Footer';
 
-import dataStatic from './api/data.json';
+// import dataStatic from './api/data.json';
 // import resources from './api/data.json';
 
 function Home({ resources }) {
@@ -27,7 +27,7 @@ function Home({ resources }) {
 // function is executed on the server
 // data are always fresh
 export async function getServerSideProps() {
-  const resData = await fetch('http://localhost:3000/api/resources');
+  const resData = await fetch('http://localhost:3001/api/resources');
   const data = await resData.json();
   console.log('***calling getServerSideProps***');
 

@@ -1,5 +1,3 @@
-import data from './data.json';
-
-export default function (req, res) {
-  res.send(data);
+export default function (_req, res) {
+  res.send('WORK IN PROGRESS!');
 }
