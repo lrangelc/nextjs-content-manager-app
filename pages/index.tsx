@@ -3,12 +3,18 @@ import ResourceHightlight from '../components/ResourceHighlight';
 import Newsletter from '../components/Newsletter';
 import ResourceList from '../components/ResourceList';
 import Footer from '../components/Footer';
+import { useEffect } from 'react';
 
 // import dataStatic from './api/data.json';
 // import resources from './api/data.json';
 
 function Home({ resources }) {
   console.log('calling Home');
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/resources');
+  }, []);
+
   return (
     <Layout>
       <ResourceHightlight resources={resources.slice(0, 2)} />
