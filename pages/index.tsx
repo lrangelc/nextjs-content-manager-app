@@ -4,7 +4,11 @@ import Newsletter from '../components/Newsletter';
 import ResourceList from '../components/ResourceList';
 import Footer from '../components/Footer';
 
+import dataStatic from './api/data.json';
+// import resources from './api/data.json';
+
 function Home({ resources }) {
+  console.log('calling Home');
   return (
     <>
       <Layout>
@@ -21,9 +25,13 @@ function Home({ resources }) {
   );
 }
 
-export async function getStaticProps() {
+// is called every time you will visit the page
+// function is executed on the server
+// data are always fresh
+export async function getServerSideProps() {
   const resData = await fetch('http://localhost:3000/api/resources');
   const data = await resData.json();
+  console.log('***calling getServerSideProps***');
 
   return {
     props: {
@@ -31,5 +39,18 @@ export async function getStaticProps() {
     },
   };
 }
+
+// is called at the build time, and it's called only once
+// export async function getStaticProps() {
+//   // const resData = await fetch('http://localhost:3000/api/resources');
+//   // const data = await resData.json();
+//   console.log('***calling getStaticProps***');
+
+//   return {
+//     props: {
+//       resources: dataStatic,
+//     },
+//   };
+// }
 
 export default Home;
