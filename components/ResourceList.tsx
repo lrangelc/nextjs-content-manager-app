@@ -2,7 +2,6 @@ const ResourceList = (props) => {
   const renderResources = () => {
     return props.resources.map((resource) => {
       return (
-        <>
           <div key={resource.id} className='column is-5 is-offset-1 '>
             <div className='content is-medium'>
               <h2 className='subtitle is-5 has-text-grey'>{resource.createdAt}</h2>
@@ -10,7 +9,6 @@ const ResourceList = (props) => {
               <p className='has-text-dark'>{resource.description}</p>
             </div>
           </div>
-        </>
       );
     });
   };
