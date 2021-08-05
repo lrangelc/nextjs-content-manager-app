@@ -10,18 +10,16 @@ import dataStatic from './api/data.json';
 function Home({ resources }) {
   console.log('calling Home');
   return (
-    <>
-      <Layout>
-        <ResourceHightlight resources={resources.slice(0, 2)} />
+    <Layout>
+      <ResourceHightlight resources={resources.slice(0, 2)} />
 
-        <Newsletter />
+      <Newsletter />
 
-        <ResourceList resources={resources.slice(2)} />
+      <ResourceList resources={resources.slice(2)} />
 
-        {JSON.stringify(resources)}
-        <Footer />
-      </Layout>
-    </>
+      {JSON.stringify(resources)}
+      <Footer />
+    </Layout>
   );
 }
 
