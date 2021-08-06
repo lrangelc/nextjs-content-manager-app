@@ -10,9 +10,46 @@ const ResourceCreate = () => {
               <h1 className='title'>Add New Resource</h1>
               <form>
                 <div className='field'>
-                  <label className='label'>Name</label>
+                  <label className='label'>Title</label>
                   <div className='control'>
-                    <input className='input' type='text' placeholder='Text input' />
+                    <input className='input' type='text' placeholder='Learn Next JS and Sanity IO' />
+                  </div>
+                </div>
+
+                <div className='field'>
+                  <label className='label'>Description</label>
+                  <div className='control'>
+                    <textarea
+                      className='textarea'
+                      placeholder='Learn these technologies because they are very popular and enable better SEO'
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div className='field'>
+                  <label className='label'>Link</label>
+                  <div className='control'>
+                    <input className='input' type='text' placeholder='https://https://academy.eincode.com' />
+                  </div>
+                </div>
+
+                <div className='field'>
+                  <label className='label'>Priority</label>
+                  <div className='control'>
+                    <div className='select'>
+                      <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div className='field'>
+                  <label className='label'>Time to finish</label>
+                  <div className='control'>
+                    <input className='input' type='number' placeholder='60 (time is in minutes)' />
                   </div>
                 </div>
 
