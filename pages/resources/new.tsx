@@ -16,6 +16,18 @@ const ResourceCreate = () => {
     alert(JSON.stringify(form));
   };
 
+  const handleTitleChange = (event) => {
+    setForm({ ...form, title: event.target.value });
+  };
+
+  const handleDescriptionChange = (event) => {
+    setForm({ ...form, description: event.target.value });
+  };
+
+  const handleLinkChange = (event) => {
+    setForm({ ...form, description: event.target.value });
+  };
+
   return (
     <Layout>
       <div className='container'>
@@ -27,7 +39,13 @@ const ResourceCreate = () => {
                 <div className='field'>
                   <label className='label'>Title</label>
                   <div className='control'>
-                    <input value={form.title} className='input' type='text' placeholder='Learn Next JS and Sanity IO' />
+                    <input
+                      value={form.title}
+                      onChange={handleTitleChange}
+                      className='input'
+                      type='text'
+                      placeholder='Learn Next JS and Sanity IO'
+                    />
                   </div>
                 </div>
 
@@ -36,6 +54,7 @@ const ResourceCreate = () => {
                   <div className='control'>
                     <textarea
                       value={form.description}
+                      onChange={handleDescriptionChange}
                       className='textarea'
                       placeholder='Learn these technologies because they are very popular and enable better SEO'
                     ></textarea>
@@ -45,7 +64,13 @@ const ResourceCreate = () => {
                 <div className='field'>
                   <label className='label'>Link</label>
                   <div className='control'>
-                    <input value={form.link} className='input' type='text' placeholder='https://https://academy.eincode.com' />
+                    <input
+                      value={form.link}
+                      onChange={handleLinkChange}
+                      className='input'
+                      type='text'
+                      placeholder='https://https://academy.eincode.com'
+                    />
                   </div>
                 </div>
 
