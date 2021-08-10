@@ -11,9 +11,9 @@ import { useEffect } from 'react';
 function Home({ resources }) {
   console.log('calling Home');
 
-  useEffect(() => {
-    fetch('http://localhost:3001/api/resources');
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/api/resources');
+  // }, []);
 
   return (
     <Layout>
