@@ -16,16 +16,13 @@ const ResourceCreate = () => {
     alert(JSON.stringify(form));
   };
 
-  const handleTitleChange = (event) => {
-    setForm({ ...form, title: event.target.value });
+  const resetForm = () => {
+    setForm(DEFAULT_DATA);
   };
 
-  const handleDescriptionChange = (event) => {
-    setForm({ ...form, description: event.target.value });
-  };
-
-  const handleLinkChange = (event) => {
-    setForm({ ...form, description: event.target.value });
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
   };
 
   return (
@@ -40,8 +37,9 @@ const ResourceCreate = () => {
                   <label className='label'>Title</label>
                   <div className='control'>
                     <input
+                      name='title'
                       value={form.title}
-                      onChange={handleTitleChange}
+                      onChange={handleInputChange}
                       className='input'
                       type='text'
                       placeholder='Learn Next JS and Sanity IO'
@@ -53,8 +51,9 @@ const ResourceCreate = () => {
                   <label className='label'>Description</label>
                   <div className='control'>
                     <textarea
+                      name='description'
                       value={form.description}
-                      onChange={handleDescriptionChange}
+                      onChange={handleInputChange}
                       className='textarea'
                       placeholder='Learn these technologies because they are very popular and enable better SEO'
                     ></textarea>
@@ -65,8 +64,9 @@ const ResourceCreate = () => {
                   <label className='label'>Link</label>
                   <div className='control'>
                     <input
+                      name='link'
                       value={form.link}
-                      onChange={handleLinkChange}
+                      onChange={handleInputChange}
                       className='input'
                       type='text'
                       placeholder='https://https://academy.eincode.com'
@@ -78,7 +78,7 @@ const ResourceCreate = () => {
                   <label className='label'>Priority</label>
                   <div className='control'>
                     <div className='select'>
-                      <select value={form.priority}>
+                      <select name='priority' value={form.priority} onChange={handleInputChange}>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -90,7 +90,14 @@ const ResourceCreate = () => {
                 <div className='field'>
                   <label className='label'>Time to finish</label>
                   <div className='control'>
-                    <input value={form.timeToFinish} className='input' type='number' placeholder='60' />
+                    <input
+                      name='timeToFinish'
+                      value={form.timeToFinish}
+                      onChange={handleInputChange}
+                      className='input'
+                      type='number'
+                      placeholder='60'
+                    />
                   </div>
                   <p className='help'>Time is in minutes</p>
                 </div>
@@ -102,7 +109,9 @@ const ResourceCreate = () => {
                     </button>
                   </div>
                   <div className='control'>
-                    <button className='button is-link is-light'>Cancel</button>
+                    <button type='button' onClick={resetForm} className='button is-link is-light'>
+                      Reset Form
+                    </button>
                   </div>
                 </div>
               </form>
