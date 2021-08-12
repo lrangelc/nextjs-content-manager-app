@@ -15,7 +15,8 @@ const ResourceCreate = () => {
 
   const submitForm = async () => {
     try {
-      await axios.post('/api/resources', form);
+      const resp = await axios.post('/api/resources', form);
+      console.log(resp);
     } catch (err) {
       console.error(err.response.data);
     }

@@ -1,4 +1,7 @@
-export default async function (req, res) {
+import type { NextApiRequest, NextApiResponse } from 'next';
+import axios from 'axios';
+
+export default async function api(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     const dataRes = await fetch('http://localhost:3001/api/resources');
     const data = await dataRes.json();
@@ -12,6 +15,13 @@ export default async function (req, res) {
     if (!title || !description || !link || !timeToFinish || !priority) {
       return res.status(422).send('Data are missing');
     }
-    return res.send('Data has been received!');
+
+    try {
+      const axiosRes = await axios.post('http://localhost:3001/api/resources', req.body);
+      return res.send(axiosRes.data);
+    } catch (err) {
+      console.error(err);
+      return res.status(422).send('Data cannot be stored!');
+    }
   }
 }
