@@ -1,7 +1,8 @@
 import Layout from '../../components/Layout';
 
-const ResourceDetail = () => {
-  const resource = { id: '', createdAt: '', title: '', description: '' };
+const ResourceDetail = (props) => {
+  const resource = props.resource;
+
   return (
     <Layout>
       <section className='hero'>
@@ -24,5 +25,16 @@ const ResourceDetail = () => {
     </Layout>
   );
 };
+
+export async function getServerSideProps(context) {
+  const dataRes = await fetch(`http://localhost:3001/api/resources/${context.params.id}`);
+  const data = await dataRes.json();
+
+  return {
+    props: {
+      resource: data,
+    },
+  };
+}
 
 export default ResourceDetail;
