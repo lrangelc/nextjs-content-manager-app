@@ -13,8 +13,18 @@ const DEFAULT_DATA = {
 const ResourceCreate = () => {
   const [form, setForm] = useState(DEFAULT_DATA);
 
-  const submitForm = () => {
-    axios.post('/api/resources', form);
+  const submitForm = async () => {
+    try {
+      await axios.post('/api/resources', form);
+    } catch (err) {
+      console.error(err.response.data);
+    }
+    // axios
+    //   .post('/api/resources', form)
+    //   .then(() => {})
+    //   .catch((err) => {
+    //     console.error(err.response.data);
+    //   });
   };
 
   const resetForm = () => {
