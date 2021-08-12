@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Layout from '../../components/Layout';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const DEFAULT_DATA = {
   title: '',
@@ -11,9 +13,22 @@ const DEFAULT_DATA = {
 
 const ResourceCreate = () => {
   const [form, setForm] = useState(DEFAULT_DATA);
+  const router = useRouter();
 
-  const submitForm = () => {
-    alert(JSON.stringify(form));
+  const submitForm = async () => {
+    try {
+      const resp = await axios.post('/api/resources', form);
+      console.log(resp);
+      router.push('/');
+    } catch (err) {
+      console.error(err.response.data);
+    }
+    // axios
+    //   .post('/api/resources', form)
+    //   .then(() => {})
+    //   .catch((err) => {
+    //     console.error(err.response.data);
+    //   });
   };
 
   const resetForm = () => {
