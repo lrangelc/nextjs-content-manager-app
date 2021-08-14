@@ -46,4 +46,32 @@ export async function getServerSideProps(context) {
   };
 }
 
+// export async function getStaticPaths() {
+//   const resData = await fetch('http://localhost:3001/api/resources');
+//   const data = await resData.json();
+
+//   const paths = data.map((resource) => {
+//     return {
+//       params: { id: resource.id },
+//     };
+//   });
+
+//   return {
+//     paths,
+//     // means that other routes should resolve into 404 page
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps(context) {
+//   const dataRes = await fetch(`http://localhost:3001/api/resources/${context.params.id}`);
+//   const data = await dataRes.json();
+
+//   return {
+//     props: {
+//       resource: data,
+//     },
+//   };
+// }
+
 export default ResourceDetail;
