@@ -26,6 +26,15 @@ const ResourceDetail = (props) => {
   );
 };
 
+// ResourceDetail.getInitialProps = async (context) => {
+//   const dataRes = await fetch(`http://localhost:3001/api/resources/${context.query.id}`);
+//   const data = await dataRes.json();
+//   console.log('getInitialProps has been called');
+//   return {
+//     resource: data,
+//   };
+// };
+
 export async function getServerSideProps(context) {
   const dataRes = await fetch(`http://localhost:3001/api/resources/${context.params.id}`);
   const data = await dataRes.json();
