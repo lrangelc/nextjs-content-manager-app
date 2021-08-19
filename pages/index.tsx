@@ -35,7 +35,14 @@ function Home({ resources }) {
 export async function getServerSideProps() {
   const resData = await fetch('http://localhost:3001/api/resources');
   const data = await resData.json();
-  console.log('***calling getServerSideProps***');
+  // console.log('***calling getServerSideProps***');
+  console.log(
+    data.map((resource) => {
+      return {
+        params: { id: resource.id },
+      };
+    })
+  );
 
   return {
     props: {
