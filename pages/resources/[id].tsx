@@ -1,7 +1,13 @@
 import Layout from '../../components/Layout';
+import { useRouter } from 'next/router';
 
 const ResourceDetail = (props) => {
   const resource = props.resource;
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading Data!</div>;
+  }
 
   return (
     <Layout>
@@ -59,7 +65,7 @@ export async function getStaticPaths() {
   return {
     paths,
     // means that other routes should resolve into 404 page
-    fallback: false,
+    fallback: true,
   };
 }
 
