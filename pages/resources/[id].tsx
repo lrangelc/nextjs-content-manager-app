@@ -65,7 +65,7 @@ export async function getStaticPaths() {
   return {
     paths,
     // means that other routes should resolve into 404 page
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -77,6 +77,7 @@ export async function getStaticProps(context) {
     props: {
       resource: data,
     },
+    revalidate: 1,
   };
 }
 
