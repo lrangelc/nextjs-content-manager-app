@@ -8,8 +8,9 @@ const DEFAULT_DATA = {
   timeToFinish: 60,
 };
 
-const ResourceForm = ({ onFormSubmit }) => {
-  const [form, setForm] = useState(DEFAULT_DATA);
+const ResourceForm = ({ onFormSubmit, initialData }) => {
+  const [form, setForm] = useState(initialData || DEFAULT_DATA);
+  const titleComponent = initialData ? 'Update Resource' : 'Add New Resource';
 
   const resetForm = () => {
     setForm(DEFAULT_DATA);
@@ -26,7 +27,7 @@ const ResourceForm = ({ onFormSubmit }) => {
 
   return (
     <div className='resource-form'>
-      <h1 className='title'>Add New Resource</h1>
+      <h1 className='title'>{titleComponent}</h1>
       <form>
         <div className='field'>
           <label className='label'>Title</label>
