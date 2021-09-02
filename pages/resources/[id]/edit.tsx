@@ -8,7 +8,7 @@ const ResourceEdit = (props) => {
 
   const updateResource = async (formData) => {
     try {
-      const resp = await axios.post('/api/resources', formData);
+      const resp = await axios.patch('/api/resources', formData);
       console.log(resp);
       router.push('/');
     } catch (err) {
